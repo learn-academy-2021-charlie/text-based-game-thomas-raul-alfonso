@@ -3,7 +3,7 @@
 def burger_game (num, did_work)
 
     if num > 0
-        puts "we've noticed you've played this #{num} #{num > 1 ? "times": "time"} before going through this, do you want leave? YES or NO?"
+        puts "((we've noticed you've played this #{num} #{num > 1 ? "times": "time"} before going through this, do you want leave? YES or NO?))"
         response = gets.chomp
       #   p response
             if (response.downcase == "yes") || (response.downcase == "no")
@@ -13,16 +13,15 @@ def burger_game (num, did_work)
 def intro string 
     string.each_char do |value| 
         putc value 
-        sleep 0.01 
+        sleep 0.04 
     end
     puts "" 
 end
 
-
 intro"\"Welcome to Asbestos-Burger, can I take your order? #{num > 0 ? "🤬🤬🤬🤬🤬🤬": "🥸"} \""
 order = gets.chomp
 puts
-intro "\"Oh you're here for the job opening cool" 
+intro "\"Oh you're here for the job opening cool\"" 
    if did_work.downcase.include?'work'
    intro "You were employee of the month at Del Taco Bell!"
    else 
@@ -32,24 +31,25 @@ intro "\"Oh you're here for the job opening cool"
 #{did_work.downcase.include?"" ? "You were employee of the month at Del Taco Bell!": "what kind of experience do you have?"}
 response = gets.chomp
 puts
-intro '"Sweet sounds good to me, you can start right now. Which uniform do you want? LEOTARD, SINGLET, or SPEEDO?"'
+intro '"Sweet! we\'re flexible with experience. You can start right now. Which uniform do you want? LEOTARD, SINGLET, or SPEEDO?"'
 uniform = gets.chomp
+puts ""
 if (!uniform.downcase.include?'leotard') && (!uniform.downcase.include?'singlet') && (!uniform.downcase.include?'speedo')
    intro '"sorry all we have are Speedo\'s"'
    uniform = "Speedo"
 end
 intro "\"Here ya go a smedium #{uniform}, what\'s your name again?\""
-name = gets
+name = gets.chomp
 intro "(.... okay I guess I didn't have anything going on today anyway, guess I'll quit my developer job and work here)"
 puts
 intro "You go into the backroom and notice they're short on supplies."
 puts
-intro 'Manager: "Hey we are are out of taco shells, go across the street to del taco bell and grab some"'
+intro 'Manager: "Hey we are are out of taco shells, go across the street to del taco bell and grab some."'
 puts
 intro "#{name} goes across the street to del taco bell and on the front door the sign says PULL. What do you want to do? "
 action = gets
 while action.downcase.include?'pull'
-intro "nothing happens, try pushing"
+intro "nothing happens."
 action = gets
 end
 if action.downcase.include?'push'
@@ -71,36 +71,40 @@ employee = gets
    else
       intro "faced with overwhelming choices, you decide to just take the supplies"
    end
-intro "As you walk back robers yell \"#{name} give me your taco shells\" "
+puts ""
+intro "As you walk back to Asbestos-Burger, robbers yell \"#{name} give me your taco shells\" "
 puts
 intro "WHAT DO YOU DO: RUN away, FIGHT"
 action = gets
    if action.downcase.include?'run'
       puts "You make it back to Asbestos-Burger in shame"
    elsif action.downcase.include?'fight'
-      puts "you pull a gat from your #{uniform} and scare them off"
+      puts "you pull a gat from your #{uniform} and scare them off. You make it to Asbestos-Burger"
    else 
       puts "they weren't robbers they were Del Taco bell employees"
    end
-   
-intro "Welcome to Asbesto-Burger, can I take your order?"
+puts ""
+intro "\"Welcome to Asbesto-Burger, can I take your order?\""
+puts ""
 intro "What do you do: ORDER again, GIVE taco shells"
 action = gets.chomp
 if action.downcase.include? 'give'
     intro "Dude, this is a burger joint. Why do we need taco shells?"
-    burger_game(num +1, employee)
 elsif action.downcase.include? 'order'
     intro "oh wait, didn't you order #{order}? It's ready, here you go."
     action = gets.chomp 
     intro "Oh, you're upset? Well if you have been clearer we wouldn't have gotten into this mess."
-    intro "Despite your lack of communications skill, I'll make it up to you. Have a free meal. what would you like?"
-    burger_game(num +1, employee)
+    intro "Despite your lack of communications skill, I'll make it up to you. Have a free meal next time you visit."
     else
     intro "They don't understand you, and they kick you out of the resturant"
     intro "You get upset and you go back in"
-      burger_game(num +1, employee)
+      
 end
-
+   if num >= 2
+      intro "Thanks for playing! We think you've had enough."
+   else 
+      burger_game(num +1, employee)
+   end
 
 end
 
