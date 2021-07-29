@@ -1,3 +1,14 @@
+
+
+def burger_game num
+
+    if num > 0
+        puts "we've noticed you've played this #{num} #{num > 1 ? "times": "time"} before going through this, do you want leave? YES or NO?"
+        response = gets.chomp
+            if (response.downcase == "yes") || (response.downcase == "no")
+            end
+        end      
+
 def intro string 
     string.each_char do |value| 
         putc value 
@@ -66,9 +77,16 @@ intro "What do you do: ORDER again, GIVE taco shells"
 action = gets.chomp
 if action.downcase.include? 'give'
     intro "Dude, this is a burger joint. Why do we need taco shells?"
+    burger_game num + 1 
 elsif action.downcase.include? 'order'
     intro "oh wait, didn't you order #{order}? It's ready, here you go."
-    action = get.chomp 
+    action = gets.chomp 
     intro "Oh, you're upset? Well if you have been clearer we wouldn't have gotten into this mess."
     intro "Despite your lack of communications skill, I'll make it up to you. Have a free meal. what would you like?"
+    burger_game num + 1
 end
+
+
+end
+
+burger_game 0  #akin to starting our game.
