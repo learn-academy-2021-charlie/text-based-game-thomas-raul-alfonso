@@ -9,6 +9,10 @@ response = gets
 puts
 puts "Sweet sounds good to me, you can start right now. Which uniform do you want? LEOTARD, SINGLET, or SPEEDO?"
 uniform = gets
+if (!uniform.downcase.include?'leotard') && (!uniform.downcase.include?'singlet') && (!uniform.downcase.include?'speedo')
+   puts "sorry all we have are Speedo's"
+   uniform = "Speedo"
+end
 puts "Here ya go a smedium #{uniform}, what's your name again?"
 name = gets
 puts "(.... okay I guess I didn't have anything going on today anyway, guess I'll quit my developer job and work here)"
@@ -27,4 +31,30 @@ elsif action.downcase.include?'push'
 else 
    puts "you walk up to the door and it slides open automatically"
 end
+puts "Welcome to Del Taco Bell, are you here about our Manager position"
+puts
+answer = gets
+puts "Great, let me show your office"
+puts
+puts "Do you work in the office, or take box of supplies in office"
+action = gets
+   if action.downcase.include?'work'
+      puts "After a month of hard work you become the Employee of Month, and borrow the supplies"
+   elsif (action.downcase.include?'box') || (action.downcase.include?'supplies') 
+      puts "take the box of supplies and jump out the window"
+   end
+puts "As you walk back robers yells #{name} give me your taco shells"
+puts
+puts "WHAT DO YOU DO: Run away, fight"
+action = gets
+   if action.downcase.include?'run away'
+      puts "You make it back to Asbestos-Burger in shame"
+   elsif action.downcase.include?'fight'
+      puts "you pull a gat from your #{uniform} and scare them off"
+   else 
+      puts "they weren't robbers they were Del Taco bell employees"
+   end
+   
+      
+
 
