@@ -1,27 +1,33 @@
+def intro string 
+    string.each_char do |value| 
+        putc value 
+        sleep 0.01 
+    end
+    puts "" 
+end
 
 
-
-puts "Welcome to Asbestos-Burger, can I take your order? 🥸"
+intro'"Welcome to Asbestos-Burger, can I take your order? 🥸 "'
 order = gets
 puts
-puts "Oh you're here for the job opening cool, what kind of experience do you have?"
+intro ' "Oh you\'re here for the job opening cool, what kind of experience do you have?"'
 response = gets
 puts
-puts "Sweet sounds good to me, you can start right now. Which uniform do you want? LEOTARD, SINGLET, or SPEEDO?"
-uniform = gets
+intro '"Sweet sounds good to me, you can start right now. Which uniform do you want? LEOTARD, SINGLET, or SPEEDO?"'
+uniform = gets.chomp
 if (!uniform.downcase.include?'leotard') && (!uniform.downcase.include?'singlet') && (!uniform.downcase.include?'speedo')
-   puts "sorry all we have are Speedo's"
+   intro '"sorry all we have are Speedo\'s"'
    uniform = "Speedo"
 end
-puts "Here ya go a smedium #{uniform}, what's your name again?"
+intro "\"Here ya go a smedium #{uniform}, what\'s your name again?\""
 name = gets
-puts "(.... okay I guess I didn't have anything going on today anyway, guess I'll quit my developer job and work here)"
+intro "(.... okay I guess I didn't have anything going on today anyway, guess I'll quit my developer job and work here)"
 puts
-puts "He goes into the backroom and notices they're short on supplies. What supplies are we short on? "
+intro "You go into the backroom and notice they're short on supplies."
 puts
-puts "Hey we are are out of taco shells, go across the street to del taco bell and grab some"
+intro 'Manager: "Hey we are are out of taco shells, go across the street to del taco bell and grab some"'
 puts
-puts "#{name} goes across the street to del taco bell and on the front door the sign says PULL. What do you want to do? "
+intro "#{name} goes across the street to del taco bell and on the front door the sign says PULL. What do you want to do? "
 action = gets
 
 if action.downcase.include?'pull'
@@ -31,23 +37,23 @@ elsif action.downcase.include?'push'
 else 
    puts "you walk up to the door and it slides open automatically"
 end
-puts "Welcome to Del Taco Bell, are you here about our Manager position"
+intro '"Welcome to Del Taco Bell, are you here about our Manager position?"'
 puts
 answer = gets
-puts "Great, let me show your office"
+intro '"Great, let me show your office"'
 puts
-puts "Do you work in the office, or take box of supplies in office"
+intro "Do you WORK in the office, or take BOX of SUPPLIES in office"
 action = gets
    if action.downcase.include?'work'
       puts "After a month of hard work you become the Employee of Month, and borrow the supplies"
    elsif (action.downcase.include?'box') || (action.downcase.include?'supplies') 
       puts "take the box of supplies and jump out the window"
    end
-puts "As you walk back robers yells #{name} give me your taco shells"
+intro "As you walk back robers yell \"#{name} give me your taco shells\" "
 puts
-puts "WHAT DO YOU DO: Run away, fight"
+intro "WHAT DO YOU DO: RUN away, FIGHT"
 action = gets
-   if action.downcase.include?'run away'
+   if action.downcase.include?'run'
       puts "You make it back to Asbestos-Burger in shame"
    elsif action.downcase.include?'fight'
       puts "you pull a gat from your #{uniform} and scare them off"
@@ -55,6 +61,14 @@ action = gets
       puts "they weren't robbers they were Del Taco bell employees"
    end
    
-      
-
-
+intro "Welcome to Asbesto-Burger, can I take your order?"
+intro "What do you do: ORDER again, GIVE taco shells"
+action = gets.chomp
+if action.downcase.include? 'give'
+    intro "Dude, this is a burger joint. Why do we need taco shells?"
+elsif action.downcase.include? 'order'
+    intro "oh wait, didn't you order #{order}? It's ready, here you go."
+    action = get.chomp 
+    intro "Oh, you're upset? Well if you have been clearer we wouldn't have gotten into this mess."
+    intro "Despite your lack of communications skill, I'll make it up to you. Have a free meal. what would you like?"
+end
